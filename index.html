@@ -259,6 +259,89 @@ footer {
   color: #a18770;
 }
 
+/* SECCION 3: ITINERARIO */
+
+.itinerary {
+  max-width: 520px;
+  margin: 65px auto 0;
+  padding: 40px 22px;
+  border-top: 1px solid #dfd2c2;
+  border-bottom: 1px solid #dfd2c2;
+}
+
+.itinerary-heading {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #a18770;
+  margin-bottom: 12px;
+}
+
+.itinerary-title {
+  font-size: 30px;
+  font-style: italic;
+  font-weight: normal;
+  color: #70584a;
+}
+
+.timeline {
+  position: relative;
+  max-width: 390px;
+  margin: 38px auto 0;
+  text-align: left;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 10px;
+  width: 1px;
+  background: #c9cdb8;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 34px 35px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 3px;
+  width: 13px;
+  height: 13px;
+  border: 1px solid #89916f;
+  border-radius: 50%;
+  background: #fbf8f2;
+}
+
+.timeline-time {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #89916f;
+  margin-bottom: 7px;
+}
+
+.timeline-event {
+  font-size: 21px;
+  font-weight: normal;
+  font-style: italic;
+  color: #70584a;
+  margin-bottom: 5px;
+}
+
+.timeline-description {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #79685b;
+}  
+  
 @media (max-width: 480px) {
   .cover {
     padding: 20px 8px;
