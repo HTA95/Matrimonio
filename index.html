@@ -340,7 +340,8 @@ footer {
   font-size: 14px;
   line-height: 1.8;
   color: #79685b;
-}  
+}
+
 /* SECCIÓN 4: DRESS CODE */
 
 .dresscode {
@@ -393,7 +394,9 @@ footer {
   font-style: italic;
   line-height: 1.8;
   color: var(--olive);
-}  /* SECCIÓN 5: REGALOS */
+}
+
+/* SECCIÓN 5: REGALOS */
 
 .gifts {
   max-width: 520px;
@@ -485,6 +488,7 @@ footer {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+
 @media (max-width: 480px) {
   .cover {
     padding: 20px 8px;
@@ -704,29 +708,91 @@ footer {
 
   </section>
 
-<!-- SECCIÓN 4: DRESS CODE -->
+  <!-- SECCIÓN 4: DRESS CODE -->
 
-<section class="dresscode" id="dresscode">
+  <section class="dresscode" id="dresscode">
 
-  <p class="dresscode-heading">DRESS CODE</p>
+    <p class="dresscode-heading">DRESS CODE</p>
 
-  <h2 class="dresscode-title">Formal</h2>
+    <h2 class="dresscode-title">Formal</h2>
 
-  <p class="dresscode-message">
-    ¡Vengan con sus mejores outfits!
-    <br><br>
-    Queremos verlos elegantes, luciéndose y, sobre todo,
-    cómodos para disfrutar cada momento. Consideren que
-    tendremos una ceremonia en la iglesia y luego un
-    cocktail al aire libre.
-  </p>
+    <p class="dresscode-message">
+      ¡Vengan con sus mejores outfits!
+      <br><br>
+      Queremos verlos elegantes, luciéndose y, sobre todo,
+      cómodos para disfrutar cada momento. Consideren que
+      tendremos una ceremonia en la iglesia y luego un
+      cocktail al aire libre.
+    </p>
 
-  <p class="dresscode-note">
-    ¡Vengan con toda la energía y las ganas de darlo todo!
-    Queremos celebrar y pasarlo increíble junto a ustedes.
-  </p>
+    <p class="dresscode-note">
+      ¡Vengan con toda la energía y las ganas de darlo todo!
+      Queremos celebrar y pasarlo increíble junto a ustedes.
+    </p>
 
-</section>
+  </section>
+
+  <!-- SECCIÓN 5: REGALOS -->
+
+  <section class="gifts" id="regalos">
+
+    <p class="gifts-heading">REGALOS</p>
+
+    <h2 class="gifts-title">Tu presencia es nuestro mejor regalo</h2>
+
+    <p class="gifts-intro">
+      Lo más importante es que estés con nosotros. Pero si quieres
+      tener un detalle, aquí te dejamos dos formas de hacerlo.
+    </p>
+
+    <!-- OPCIÓN 1: TRANSFERENCIA -->
+
+    <div class="gift-option">
+
+      <h3 class="gift-option-title">Transferencia directa</h3>
+
+      <p class="gift-option-description">
+        Puedes transferir a nuestra cuenta de Mercado Pago.
+      </p>
+
+      <p class="gift-details">
+        <strong>Marisol Valeria Garín Opazo</strong><br>
+        RUT: 19.143.506-0<br>
+        Mercado Pago<br>
+        Cuenta Vista<br>
+        N° de cuenta: 1041390804<br>
+        marisolgarin1@gmail.com
+      </p>
+
+      <button class="gift-button" id="copyBtn" type="button" onclick="copyBankData()">
+        Copiar datos
+      </button>
+
+    </div>
+
+    <!-- OPCIÓN 2: LISTA DE NOVIOS -->
+
+    <div class="gift-option">
+
+      <h3 class="gift-option-title">Lista de novios</h3>
+
+      <p class="gift-option-description">
+        También armamos una lista con cosas que nos harían mucha ilusión.
+      </p>
+
+      <a
+        class="gift-button"
+        href="https://milistadenovios.cl/lista/marisolyhector"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ver lista de novios
+      </a>
+
+    </div>
+
+  </section>
+
   <footer>
     CON MUCHO AMOR · M & H
   </footer>
@@ -748,6 +814,41 @@ function openInvitation() {
     invitation.classList.add("visible");
     window.scrollTo(0, 0);
   }, 1000);
+}
+
+function copyBankData() {
+  const text =
+`Marisol Valeria Garín Opazo
+RUT: 19.143.506-0
+Mercado Pago
+Cuenta Vista
+N° de cuenta: 1041390804
+marisolgarin1@gmail.com`;
+
+  const btn = document.getElementById("copyBtn");
+
+  const showCopied = () => {
+    const original = btn.textContent;
+    btn.textContent = "¡Datos copiados!";
+    setTimeout(() => { btn.textContent = original; }, 2500);
+  };
+
+  const fallback = () => {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); showCopied(); } catch (e) {}
+    document.body.removeChild(ta);
+  };
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(showCopied).catch(fallback);
+  } else {
+    fallback();
+  }
 }
 </script>
 
