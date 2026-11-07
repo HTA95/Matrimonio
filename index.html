@@ -1,23 +1,39 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nuestra boda | Marisol & Héctor</title>
+<meta name="theme-color" content="#f5f0e8">
+<title>Marisol & Héctor | Nuestra boda</title>
 
 <style>
+:root {
+  --ivory: #fbf8f2;
+  --paper: #f5f0e8;
+  --olive: #68785d;
+  --sage: #a4ad96;
+  --burgundy: #743c48;
+  --text: #665c50;
+  --line: #ded8ca;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: #f5f0e8;
-  color: #55483e;
+  background: var(--paper);
+  color: var(--text);
   font-family: Georgia, serif;
 }
+
+/* PORTADA Y SOBRE */
 
 .cover {
   min-height: 100svh;
@@ -27,7 +43,7 @@ body {
   align-items: center;
   padding: 25px 16px;
   text-align: center;
-  background: #f5f0e8;
+  background: var(--paper);
 }
 
 .small-title {
@@ -66,12 +82,14 @@ body {
   margin-top: 5px;
 }
 
+/* INVITACIÓN */
+
 .invitation {
   display: none;
   min-height: 100vh;
   text-align: center;
-  padding: 75px 25px;
-  background: #fbf8f2;
+  padding: 65px 22px;
+  background: var(--ivory);
 }
 
 .invitation.visible {
@@ -94,7 +112,7 @@ body {
   font-size: 11px;
   letter-spacing: 4px;
   color: #a18770;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .names {
@@ -115,40 +133,127 @@ body {
 .ornament {
   color: #b49a7d;
   font-size: 24px;
-  margin: 35px 0;
+  margin: 30px 0;
+}
+
+/* SECCIÓN 1: INTRODUCCIÓN */
+
+.intro {
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 0 5px 55px;
+}
+
+.section-title {
+  color: var(--olive);
+  font-size: 29px;
+  font-weight: normal;
+  font-style: italic;
+  margin-bottom: 22px;
 }
 
 .message {
-  max-width: 340px;
-  margin: 0 auto;
   font-size: 16px;
   line-height: 2;
   color: #79685b;
 }
 
-.details {
-  margin: 60px auto 0;
-  max-width: 350px;
-  padding: 35px 20px;
-  border-top: 1px solid #dfd2c2;
-  border-bottom: 1px solid #dfd2c2;
+/* SECCIÓN 2: DETALLES */
+
+.event-section {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 45px 0 35px;
+  border-top: 1px solid var(--line);
 }
 
-.details h2 {
-  font-weight: normal;
+.event-date {
+  color: #927a65;
+  font-size: 15px;
+  letter-spacing: 2px;
+  margin: -5px 0 35px;
+}
+
+.event-card {
+  padding: 20px 10px 38px;
+}
+
+.event-card + .event-card {
+  border-top: 1px solid var(--line);
+  padding-top: 38px;
+}
+
+.event-illustration {
+  display: block;
+  width: min(100%, 300px);
+  height: auto;
+  max-height: 220px;
+  object-fit: contain;
+  margin: 0 auto 22px;
+}
+
+.event-icon {
+  width: 105px;
+  height: 105px;
+  margin: 0 auto 22px;
+  color: var(--olive);
+  display: block;
+}
+
+.event-type {
+  color: var(--olive);
   font-size: 25px;
   font-style: italic;
-  margin-bottom: 20px;
+  font-weight: normal;
+  margin-bottom: 12px;
 }
 
-.details p {
+.event-time {
+  color: #927a65;
+  font-size: 25px;
+  margin-bottom: 16px;
+}
+
+.event-name {
+  color: #66594d;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.event-address {
   font-size: 14px;
-  line-height: 2.2;
+  line-height: 1.8;
+  color: #817467;
+  max-width: 300px;
+  margin: 0 auto 20px;
+}
+
+/* BOTONES MAPS */
+
+.map-button {
+  display: inline-block;
+  padding: 12px 25px;
+  border: 1px solid var(--olive);
+  border-radius: 2px;
+  color: var(--olive);
+  text-decoration: none;
+  font-family: Georgia, serif;
+  font-size: 12px;
   letter-spacing: 1px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.map-button:hover {
+  background: var(--olive);
+  color: white;
 }
 
 footer {
-  margin-top: 60px;
+  margin-top: 25px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
   font-size: 11px;
   letter-spacing: 3px;
   color: #a18770;
@@ -168,7 +273,11 @@ footer {
   }
 
   .invitation {
-    padding: 65px 22px;
+    padding: 55px 22px;
+  }
+
+  .event-illustration {
+    width: min(100%, 270px);
   }
 }
 </style>
@@ -176,10 +285,21 @@ footer {
 
 <body>
 
+<!-- PORTADA -->
+
 <section class="cover" id="cover">
+
   <p class="small-title">Una invitación especial</p>
 
-  <div class="envelope" id="envelope" onclick="openInvitation()">
+  <div
+    class="envelope"
+    id="envelope"
+    onclick="openInvitation()"
+    role="button"
+    tabindex="0"
+    aria-label="Abrir invitación"
+    onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openInvitation(); }"
+  >
     <img
       class="envelope-art"
       src="sobre-marisol-hector.png"
@@ -188,9 +308,13 @@ footer {
   </div>
 
   <p class="instruction">TOCA EL SOBRE PARA ABRIR</p>
+
 </section>
 
+<!-- INVITACIÓN -->
+
 <section class="invitation" id="invitation">
+
   <p class="eyebrow">NOS CASAMOS</p>
 
   <h1 class="names">
@@ -201,32 +325,132 @@ footer {
 
   <div class="ornament">✦</div>
 
-<p class="message">
-  Después de tantas aventuras, momentos compartidos
-  y sueños por cumplir, ¡llegó el momento de dar
-  este gran paso juntos!
-  <br><br>
-  Queremos celebrar este día rodeados de las personas
-  que son parte de nuestra historia, y nos haría muy
-  felices que estuvieras ahí.
-  <br><br>
-  ¡Te esperamos para celebrar juntos!
-</p>
+  <!-- SECCIÓN 1: INTRODUCCIÓN -->
 
-  <div class="details">
-    <h2>Reserva la fecha</h2>
-    <p>13 DE FEBRERO</p>
-    <p>PAINE, CHILE</p>
-    <p>Próximamente más detalles</p>
-  </div>
+  <section class="intro">
+
+    <h2 class="section-title">¡Nos casamos!</h2>
+
+    <p class="message">
+      Después de tantas aventuras, momentos compartidos
+      y sueños por cumplir, ¡llegó el momento de dar
+      este gran paso juntos!
+      <br><br>
+      Queremos celebrar este día rodeados de las personas
+      que son parte de nuestra historia, y nos haría muy
+      felices que estuvieras ahí.
+      <br><br>
+      ¡Te esperamos para celebrar juntos!
+    </p>
+
+  </section>
+
+  <!-- SECCIÓN 2: DETALLES DEL EVENTO -->
+
+  <section class="event-section" id="detalles">
+
+    <h2 class="section-title">El gran día</h2>
+
+    <p class="event-date">13 DE FEBRERO DE 2027</p>
+
+    <!-- CEREMONIA -->
+
+    <article class="event-card">
+
+      <img
+        class="event-illustration"
+        src="ilustracion-parroquia-santos-angeles-custodios.svg"
+        alt="Ilustración arquitectónica de la Parroquia de los Santos Ángeles Custodios"
+      >
+
+      <h3 class="event-type">La ceremonia</h3>
+
+      <p class="event-time">17:00 hrs.</p>
+
+      <p class="event-name">
+        Parroquia de los Santos Ángeles Custodios
+      </p>
+
+      <p class="event-address">
+        Rodolfo Vergara Antúnez 0252<br>
+        Providencia, Santiago
+      </p>
+
+      <a
+        class="map-button"
+        href="https://www.google.com/maps/search/?api=1&query=Parroquia+Santos+Angeles+Custodios+Rodolfo+Vergara+Antunez+0252+Providencia"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        CÓMO LLEGAR ↗️
+      </a>
+
+    </article>
+
+    <!-- CELEBRACIÓN -->
+
+    <article class="event-card">
+
+      <svg
+        class="event-icon"
+        viewBox="0 0 120 120"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-label="Ilustración de copas de brindis"
+        role="img"
+      >
+        <path d="M27 15h29l-3 30c-1 11-6 17-12 20v25"/>
+        <path d="M39 70c-9-3-14-11-14-25"/>
+        <path d="M24 45h30"/>
+        <path d="M41 90h-9m0 0h26"/>
+        <path d="M65 15h29l-3 30c-1 11-6 17-12 20v25"/>
+        <path d="M77 70c-9-3-14-11-14-25"/>
+        <path d="M62 45h30"/>
+        <path d="M79 90h-9m0 0h26"/>
+        <path d="M50 24l8-8m-5 17l9-9"/>
+        <path d="M87 15l7-7m-3 16l8-8"/>
+        <path d="M60 104c-13 0-22 2-29 5h58c-7-3-16-5-29-5z"/>
+      </svg>
+
+      <h3 class="event-type">La celebración</h3>
+
+      <p class="event-time">Desde las 19:00 hrs.</p>
+
+      <p class="event-name">
+        Centro de Eventos Torres de Paine
+      </p>
+
+      <p class="event-address">
+        Presidente Gabriel González Videla,<br>
+        Parcela 54, Paine
+      </p>
+
+      <a
+        class="map-button"
+        href="https://www.google.com/maps/search/?api=1&query=Centro+de+Eventos+Torres+de+Paine+Presidente+Gabriel+Gonzalez+Videla+Parcela+54+Paine"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        CÓMO LLEGAR ↗️
+      </a>
+
+    </article>
+
+  </section>
 
   <footer>
     CON MUCHO AMOR · M & H
   </footer>
+
 </section>
 
 <script>
 function openInvitation() {
+
   const envelope = document.getElementById("envelope");
   const invitation = document.getElementById("invitation");
 
