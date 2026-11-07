@@ -614,6 +614,373 @@ footer {
   font-style: italic;
 }
 
+/* SECCIÓN 7: RSVP */
+
+.rsvp {
+  max-width: 520px;
+  margin: 65px auto 0;
+  padding: 45px 25px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.rsvp-heading {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #a18770;
+  margin-bottom: 14px;
+}
+
+.rsvp-title {
+  font-size: 30px;
+  font-style: italic;
+  font-weight: normal;
+  color: #70584a;
+  margin-bottom: 18px;
+}
+
+.rsvp-deadline {
+  display: inline-block;
+  color: var(--olive);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border-top: 1px solid var(--sage);
+  border-bottom: 1px solid var(--sage);
+  margin-bottom: 18px;
+}
+
+.rsvp-intro {
+  max-width: 390px;
+  margin: 0 auto 32px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #79685b;
+}
+
+.rsvp-form {
+  max-width: 390px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.field {
+  margin-bottom: 28px;
+  border: none;
+}
+
+.field-label {
+  display: block;
+  font-size: 17px;
+  font-style: italic;
+  color: #70584a;
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.field-hint {
+  display: block;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #947c68;
+  margin-bottom: 10px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.field input[type="text"],
+.field input[type="tel"],
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--paper);
+  color: var(--text);
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.field textarea.short {
+  min-height: 64px;
+}
+
+.van-box .van-phone {
+  margin-top: 22px;
+}
+
+.field input[type="text"]:focus,
+.field input[type="tel"]:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--olive);
+}
+
+.choice-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.choice {
+  position: relative;
+  flex: 1;
+  min-width: 120px;
+}
+
+.choice input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.choice span {
+  display: block;
+  padding: 12px 10px;
+  border: 1px solid var(--olive);
+  border-radius: 2px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--olive);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.choice input:checked + span {
+  background: var(--olive);
+  color: white;
+}
+
+.choice input:focus-visible + span {
+  outline: 2px solid var(--sage);
+  outline-offset: 3px;
+}
+
+.van-box {
+  padding: 20px 18px;
+  border: 1px solid var(--line);
+  margin-bottom: 28px;
+}
+
+.van-box .field {
+  margin-bottom: 0;
+}
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.rsvp-submit {
+  display: block;
+  width: 100%;
+  padding: 15px 24px;
+  background: var(--olive);
+  color: white;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.rsvp-submit:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.rsvp-submit:disabled {
+  background: var(--sage);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.rsvp-feedback {
+  margin-top: 16px;
+  min-height: 22px;
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: center;
+  color: #947c68;
+}
+
+.rsvp-feedback.error {
+  color: var(--burgundy);
+}
+
+.rsvp-feedback.ok {
+  color: var(--olive);
+  font-style: italic;
+}
+
+.rsvp-thanks {
+  display: none;
+  max-width: 390px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 2;
+  color: #79685b;
+}
+
+.rsvp-thanks strong {
+  display: block;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: normal;
+  color: var(--olive);
+  margin-bottom: 10px;
+}
+
+/* CONTADOR */
+
+.countdown {
+  max-width: 520px;
+  margin: 65px auto 0;
+  padding: 45px 25px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.countdown-title {
+  text-wrap: balance;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: normal;
+  color: #70584a;
+  margin-bottom: 28px;
+}
+
+.countdown-grid {
+  max-width: 390px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.countdown-heading {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #a18770;
+  margin-bottom: 14px;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.countdown-unit {
+  padding: 16px 4px 12px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.countdown-number {
+  display: block;
+  font-size: clamp(28px, 9vw, 38px);
+  font-style: italic;
+  line-height: 1.1;
+  color: var(--olive);
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #947c68;
+}
+
+.countdown-date {
+  margin-top: 18px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #927a65;
+}
+
+.countdown-done {
+  font-size: 24px;
+  font-style: italic;
+  color: var(--olive);
+  padding: 10px 0;
+}
+
+/* DECORACIÓN BOTÁNICA (arte del sobre) */
+
+section.invitation {
+  position: relative;
+  overflow: hidden;
+  padding-top: 96px;
+  padding-bottom: calc(clamp(120px, 32vw, 220px) * 1.3 + 12px);
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .30 0 0 0 .07 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"),
+    var(--ivory);
+}
+
+.invitation > *:not(.deco) {
+  position: relative;
+  z-index: 1;
+}
+
+.deco {
+  position: absolute;
+  z-index: 0;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.deco-tl { top: 0;    left: 0;  width: clamp(120px, 34vw, 210px); transform-origin: top left; }
+.deco-tr { top: 0;    right: 0; width: clamp(110px, 30vw, 190px); transform-origin: top right; }
+.deco-bl { bottom: 0; left: 0;  width: clamp(120px, 32vw, 220px); transform-origin: bottom left; }
+.deco-br { bottom: 0; right: 0; width: clamp(130px, 34vw, 220px); transform-origin: bottom right; }
+
+.invitation.visible .deco {
+  animation: decorIn 1.8s ease both 0.3s;
+}
+
+@keyframes decorIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invitation.visible .deco { animation: none; }
+}
+
+.seal {
+  display: block;
+  width: 78px;
+  height: auto;
+  margin: 0 auto;
+  filter: drop-shadow(0 3px 5px rgba(90, 80, 40, 0.28));
+}
+
+.ampersand {
+  color: var(--burgundy);
+}
+
 @media (max-width: 480px) {
   .cover {
     padding: 20px 8px;
@@ -670,6 +1037,12 @@ footer {
 
 <section class="invitation" id="invitation">
 
+  <!-- DECORACIÓN BOTÁNICA (arte del sobre) -->
+  <img class="deco deco-tl" src="hoja-olivo-sup.webp" alt="" aria-hidden="true" decoding="async">
+  <img class="deco deco-tr" src="ramo-burdeo.webp" alt="" aria-hidden="true" decoding="async">
+  <img class="deco deco-bl" src="orquidea-burdeo.webp" alt="" aria-hidden="true" decoding="async">
+  <img class="deco deco-br" src="hoja-olivo-inf.webp" alt="" aria-hidden="true" decoding="async">
+
   <p class="eyebrow">NOS CASAMOS</p>
 
   <h1 class="names">
@@ -678,7 +1051,7 @@ footer {
     Héctor
   </h1>
 
-  <div class="ornament">✦</div>
+  <div class="ornament"><img class="seal" src="sello-mh.webp" alt="Sello con las iniciales M y H" decoding="async"></div>
 
   <!-- SECCIÓN 1: INTRODUCCIÓN -->
 
@@ -965,17 +1338,6 @@ footer {
         <input type="checkbox" class="pact-check">
         <span class="pact-box"></span>
         <span class="pact-text">
-          <span class="pact-name">Pacto "Vienes Solo"</span>
-          Entiendo que mi invitación es personal. Si me llegó para uno, no
-          llevaré un "+1" sorpresa (ni al pinche de la semana ni a un primo).
-          Confío en que me espera una mesa ultra prendida. 🤫
-        </span>
-      </label>
-
-      <label class="pact">
-        <input type="checkbox" class="pact-check">
-        <span class="pact-box"></span>
-        <span class="pact-text">
           <span class="pact-name">Acuerdo "Cero Hora Chilena"</span>
           Sé que la hora de la ceremonia es real. Si me agarra el taco y llego
           tarde cuando la novia ya va entrando, asumo que tendré que
@@ -996,8 +1358,171 @@ footer {
     </div>
 
     <p class="pacts-status" id="pactsStatus" aria-live="polite">
-      0 de 6 pactos firmados
+      0 de 5 pactos firmados
     </p>
+
+  </section>
+
+  <!-- SECCIÓN 7: RSVP -->
+
+  <section class="rsvp" id="rsvp">
+
+    <p class="rsvp-heading">RSVP</p>
+
+    <h2 class="rsvp-title">Confirma tu asistencia</h2>
+
+    <p class="rsvp-deadline">Tienes hasta el 15 de diciembre</p>
+
+    <p class="rsvp-intro">
+      Para poder organizar todo con cariño, cuéntanos si nos acompañas.
+      Recuerda firmar los pactos de más arriba: sin ellos, el botón no se activa. 😉
+    </p>
+
+    <form class="rsvp-form" id="rsvpForm" novalidate>
+
+      <!-- Campo trampa anti-spam: no completar -->
+      <div class="hp-field" aria-hidden="true">
+        <label>No completar<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <!-- i) NOMBRE -->
+      <div class="field">
+        <label class="field-label" for="fName">Nombre y apellido</label>
+        <input type="text" id="fName" name="nombre" autocomplete="name" required>
+      </div>
+
+      <!-- ii) CONFIRMACIÓN -->
+      <fieldset class="field">
+        <legend class="field-label">¿Nos acompañas?</legend>
+        <div class="choice-row">
+          <label class="choice">
+            <input type="radio" name="asistencia" value="Sí" required>
+            <span>¡Sí, ahí estaré!</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="asistencia" value="No">
+            <span>No podré ir</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Todo lo que sigue se oculta si la persona responde "No podré ir" -->
+      <div id="attendingFields">
+
+      <!-- iii) MENÚ -->
+      <fieldset class="field">
+        <legend class="field-label">Tu menú</legend>
+        <div class="choice-row">
+          <label class="choice">
+            <input type="radio" name="menu" value="Menú tradicional">
+            <span>Tradicional</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="menu" value="Vegetariano">
+            <span>Vegetariano</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="menu" value="Vegano">
+            <span>Vegano</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label class="field-label" for="fAllergy">Alergias o intolerancias</label>
+        <span class="field-hint">Opcional. Si no tienes ninguna, déjalo en blanco.</span>
+        <textarea id="fAllergy" name="alergias" class="short"></textarea>
+      </div>
+
+      <!-- iv) VAN -->
+      <div class="van-box">
+        <fieldset class="field">
+          <legend class="field-label">🚐 ¿Te sumas a la van?</legend>
+          <span class="field-hint">
+            El matrimonio es en Paine y queremos que todos vuelvan sanos y salvos.
+            Si se junta un buen grupo, gestionaremos una van a puntos clave de
+            Santiago con un precio preferencial. El traslado lo paga cada uno,
+            pero nosotros conseguimos la rebaja. ¡Avisa si te interesa el cupo!
+          </span>
+          <div class="choice-row">
+            <label class="choice">
+              <input type="radio" name="van" value="Me interesa">
+              <span>¡Me interesa!</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="van" value="No la necesito">
+              <span>No la necesito</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="field van-phone" id="vanPhoneField" hidden>
+          <label class="field-label" for="fPhone">Tu número de teléfono</label>
+          <span class="field-hint">Lo usaremos solo para contactarte y coordinar la van.</span>
+          <input type="tel" id="fPhone" name="telefono" autocomplete="tel" inputmode="tel" placeholder="+56 9 1234 5678">
+        </div>
+      </div>
+
+      <!-- v) MENSAJE -->
+      <div class="field">
+        <label class="field-label" for="fMsg">Un mensajito para los novios</label>
+        <textarea id="fMsg" name="mensaje"></textarea>
+      </div>
+
+      <!-- vi) CANCIÓN -->
+      <div class="field">
+        <label class="field-label" for="fSong">Una canción que no puede faltar</label>
+        <span class="field-hint">Escribe el nombre de la canción y el artista.</span>
+        <input type="text" id="fSong" name="cancion" placeholder="Ej: Canción – Artista">
+      </div>
+
+      </div><!-- /attendingFields -->
+
+      <button class="rsvp-submit" id="rsvpSubmit" type="submit" disabled>
+        Enviar confirmación
+      </button>
+
+      <p class="rsvp-feedback" id="rsvpFeedback" aria-live="polite">
+        Firma los 5 pactos para activar el botón.
+      </p>
+
+    </form>
+
+    <div class="rsvp-thanks" id="rsvpThanks">
+      <strong>¡Gracias por confirmar!</strong>
+      Recibimos tu respuesta. Nos vemos el 13 de febrero. 🥂
+    </div>
+
+  </section>
+
+  <!-- SECCIÓN 8: CONTADOR (siempre visible, al final) -->
+
+  <section class="countdown" id="countdown" role="timer" aria-label="Cuenta regresiva para el matrimonio">
+
+    <p class="countdown-heading">CUENTA REGRESIVA</p>
+
+    <h2 class="countdown-title">Falta poco para el gran día</h2>
+
+    <div class="countdown-grid" id="countdownGrid">
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cdDays">0</span>
+        <span class="countdown-label">Días</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cdHours">00</span>
+        <span class="countdown-label">Horas</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cdMinutes">00</span>
+        <span class="countdown-label">Min</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cdSeconds">00</span>
+        <span class="countdown-label">Seg</span>
+      </div>
+    </div>
+
+    <p class="countdown-date">13 DE FEBRERO DE 2027 · 17:00 HRS.</p>
 
   </section>
 
@@ -1084,6 +1609,164 @@ function updatePactsStatus() {
 document.querySelectorAll(".pact-check").forEach(c => {
   c.addEventListener("change", updatePactsStatus);
 });
+
+/* RSVP */
+
+// Pegar aquí la URL de la aplicación web de Google Apps Script (termina en /exec)
+const RSVP_ENDPOINT = "REEMPLAZAR_URL_APPS_SCRIPT";
+
+const rsvpForm = document.getElementById("rsvpForm");
+const rsvpSubmit = document.getElementById("rsvpSubmit");
+const rsvpFeedback = document.getElementById("rsvpFeedback");
+const attendingFields = document.getElementById("attendingFields");
+const vanPhoneField = document.getElementById("vanPhoneField");
+
+function setFeedback(message, type) {
+  rsvpFeedback.textContent = message;
+  rsvpFeedback.className = "rsvp-feedback" + (type ? " " + type : "");
+}
+
+function syncRsvpButton() {
+  const ready = allPactsAccepted();
+  rsvpSubmit.disabled = !ready;
+  if (ready) {
+    setFeedback("", "");
+  } else {
+    setFeedback("Firma los " + document.querySelectorAll(".pact-check").length + " pactos para activar el botón.", "");
+  }
+}
+
+// Muestra u oculta campos según las respuestas
+function updateConditionalFields() {
+  const notAttending = rsvpForm.elements["asistencia"].value === "No";
+  attendingFields.hidden = notAttending;
+  vanPhoneField.hidden = rsvpForm.elements["van"].value !== "Me interesa";
+}
+
+rsvpForm.addEventListener("change", updateConditionalFields);
+document.addEventListener("pactsChange", syncRsvpButton);
+syncRsvpButton();
+updateConditionalFields();
+
+rsvpForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  if (!allPactsAccepted()) {
+    setFeedback("Primero debes firmar todos los pactos. 😉", "error");
+    return;
+  }
+
+  const name = rsvpForm.elements["nombre"].value.trim();
+  const attendance = rsvpForm.elements["asistencia"].value;
+  const attending = attendance === "Sí";
+
+  if (!name) {
+    setFeedback("Cuéntanos tu nombre y apellido.", "error");
+    rsvpForm.elements["nombre"].focus();
+    return;
+  }
+
+  if (!attendance) {
+    setFeedback("Indícanos si nos acompañas o no.", "error");
+    return;
+  }
+
+  const menu = rsvpForm.elements["menu"].value;
+  const van = rsvpForm.elements["van"].value;
+  const phone = rsvpForm.elements["telefono"].value.trim();
+
+  if (attending && !menu) {
+    setFeedback("Elige tu menú: tradicional, vegetariano o vegano.", "error");
+    return;
+  }
+
+  if (attending && van === "Me interesa" && phone.replace(/\D/g, "").length < 8) {
+    setFeedback("Déjanos un teléfono válido para coordinar la van.", "error");
+    rsvpForm.elements["telefono"].focus();
+    return;
+  }
+
+  if (RSVP_ENDPOINT.includes("REEMPLAZAR")) {
+    setFeedback("El formulario aún no está conectado. Avísanos por WhatsApp, por favor.", "error");
+    return;
+  }
+
+  // Si no asiste, solo se envían nombre y respuesta
+  const data = {
+    nombre: name,
+    asistencia: attendance,
+    menu: attending ? menu : "",
+    alergias: attending ? rsvpForm.elements["alergias"].value.trim() : "",
+    van: attending ? (van || "Sin respuesta") : "",
+    telefono: attending && van === "Me interesa" ? phone : "",
+    mensaje: attending ? rsvpForm.elements["mensaje"].value.trim() : "",
+    cancion: attending ? rsvpForm.elements["cancion"].value.trim() : "",
+    pactos_firmados: "Sí",
+    _gotcha: rsvpForm.elements["_gotcha"].value
+  };
+
+  rsvpSubmit.disabled = true;
+  rsvpSubmit.textContent = "Enviando...";
+  setFeedback("", "");
+
+  try {
+    // text/plain + no-cors evita problemas de CORS con Google Apps Script
+    await fetch(RSVP_ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(data)
+    });
+
+    rsvpForm.style.display = "none";
+    const thanks = document.getElementById("rsvpThanks");
+    thanks.style.display = "block";
+    if (!attending) {
+      thanks.innerHTML = "<strong>¡Gracias por avisarnos!</strong>Lamentamos que no puedas venir, te vamos a extrañar. 🤍";
+    }
+    document.getElementById("rsvp").scrollIntoView({ behavior: "smooth", block: "start" });
+  } catch (err) {
+    rsvpSubmit.disabled = false;
+    rsvpSubmit.textContent = "Enviar confirmación";
+    setFeedback("No pudimos enviar tu respuesta. Revisa tu conexión e inténtalo de nuevo.", "error");
+  }
+});
+
+/* CONTADOR HASTA EL GRAN DÍA */
+
+// 13 de febrero de 2027, 17:00 hora de Chile (UTC-3, horario de verano).
+// Con el desfase fijo, el contador es correcto desde cualquier zona horaria.
+const WEDDING_DATE = new Date("2027-02-13T17:00:00-03:00");
+let countdownTimer = null;
+
+function startCountdown() {
+  const box = document.getElementById("countdown");
+
+  if (countdownTimer) clearInterval(countdownTimer);
+
+  const pad = (n) => String(n).padStart(2, "0");
+
+  function tick() {
+    const diff = WEDDING_DATE.getTime() - Date.now();
+
+    if (diff <= 0) {
+      clearInterval(countdownTimer);
+      box.innerHTML = '<p class="countdown-heading">CUENTA REGRESIVA</p><p class="countdown-done">¡Llegó el gran día! 💍</p>';
+      return;
+    }
+
+    const totalSeconds = Math.floor(diff / 1000);
+    document.getElementById("cdDays").textContent = Math.floor(totalSeconds / 86400);
+    document.getElementById("cdHours").textContent = pad(Math.floor((totalSeconds % 86400) / 3600));
+    document.getElementById("cdMinutes").textContent = pad(Math.floor((totalSeconds % 3600) / 60));
+    document.getElementById("cdSeconds").textContent = pad(totalSeconds % 60);
+  }
+
+  tick();
+  countdownTimer = setInterval(tick, 1000);
+}
+
+startCountdown();
 </script>
 
 </body>
