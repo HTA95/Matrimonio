@@ -975,6 +975,18 @@ footer {
   margin-bottom: 10px;
 }
 
+.calendar-box {
+  margin-top: 26px;
+}
+
+.calendar-hint {
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--olive);
+  margin-bottom: 14px;
+}
+
 /* CONTADOR */
 
 .countdown {
@@ -1637,6 +1649,19 @@ Como saben, amamos viajar y estamos muy ilusionados con nuestra luna de miel. Po
     <div class="rsvp-thanks" id="rsvpThanks">
       <strong>¡Gracias por confirmar!</strong>
       Recibimos tu respuesta. Nos vemos el 13 de febrero. 🥂
+
+      <div class="calendar-box" id="calendarBox" hidden>
+        <p class="calendar-hint">¡Para que no se te pase la fecha!</p>
+        <a
+          class="gift-button"
+          id="calendarBtn"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Agendar el evento
+        </a>
+      </div>
     </div>
 
   </section>
@@ -1869,6 +1894,9 @@ rsvpForm.addEventListener("submit", async (e) => {
     thanks.style.display = "block";
     if (!attending) {
       thanks.innerHTML = "<strong>¡Gracias por avisarnos!</strong>Lamentamos que no puedas venir, te vamos a extrañar. 🤍";
+    } else {
+      document.getElementById("calendarBtn").href = buildCalendarUrl();
+      document.getElementById("calendarBox").hidden = false;
     }
     document.getElementById("rsvp").scrollIntoView({ behavior: "smooth", block: "start" });
   } catch (err) {
@@ -1927,6 +1955,45 @@ rsvpForm.addEventListener("submit", async (e) => {
 
   updateDots();
 })();
+
+/* AGENDAR EN GOOGLE CALENDAR */
+
+function buildCalendarUrl() {
+  const title = "Matrimonio Marisol y Héctor";
+
+  // Hora de Chile: 17:00 del 13-feb-2027 hasta las 03:00 del día siguiente
+  const dates = "20270213T170000/20270214T030000";
+
+  const location = "Parroquia de los Santos Ángeles Custodios, Rodolfo Vergara Antúnez 0252, Providencia, Santiago";
+
+  const details = [
+    "¡Nos casamos! Gracias por acompañarnos.",
+    "",
+    "CEREMONIA (17:00 hrs.)",
+    "Parroquia de los Santos Ángeles Custodios",
+    "Rodolfo Vergara Antúnez 0252, Providencia, Santiago",
+    "https://www.google.com/maps/search/?api=1&query=Parroquia+Santos+Angeles+Custodios+Rodolfo+Vergara+Antunez+0252+Providencia",
+    "",
+    "CELEBRACIÓN (desde las 19:00 hrs.)",
+    "Centro de Eventos Torres de Paine",
+    "Presidente Gabriel González Videla, Parcela 54, Paine",
+    "https://www.google.com/maps/search/?api=1&query=Centro+de+Eventos+Torres+de+Paine+Presidente+Gabriel+Gonzalez+Videla+Parcela+54+Paine",
+    "",
+    "Dress code: Formal."
+  ].join("\n");
+
+  const params = [
+    ["action", "TEMPLATE"],
+    ["text", title],
+    ["dates", dates],
+    ["ctz", "America/Santiago"],
+    ["details", details],
+    ["location", location]
+  ];
+
+  return "https://calendar.google.com/calendar/render?" +
+    params.map(([k, v]) => k + "=" + encodeURIComponent(v)).join("&");
+}
 
 /* CONTADOR HASTA EL GRAN DÍA */
 
