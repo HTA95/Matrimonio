@@ -154,6 +154,138 @@ body {
   color: #79685b;
 }
 
+/* SECCIÓN 1B: NUESTRA HISTORIA (carrusel) */
+
+.story {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 45px 0 40px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.story + .event-section {
+  border-top: none;
+}
+
+.carousel {
+  position: relative;
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 4px;
+}
+
+.carousel-slide {
+  position: relative;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.carousel-slide img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--sage);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(251, 248, 242, 0.88);
+  color: var(--olive);
+  font-family: inherit;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.carousel-btn:hover {
+  background: var(--olive);
+  color: white;
+}
+
+.carousel-btn.prev { left: 8px; }
+.carousel-btn.next { right: 8px; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 18px;
+}
+
+.carousel-dot {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.carousel-dot::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--olive);
+  border-radius: 50%;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.carousel-dot.active::before {
+  background: var(--olive);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track { scroll-behavior: auto; }
+}
+
 /* SECCIÓN 2: DETALLES */
 
 .event-section {
@@ -189,11 +321,10 @@ body {
 }
 
 .event-icon {
-  width: 105px;
-  height: 105px;
-  margin: 0 auto 22px;
-  color: var(--olive);
   display: block;
+  width: min(100%, 190px);
+  height: auto;
+  margin: 0 auto 22px;
 }
 
 .event-type {
@@ -1062,6 +1193,50 @@ section.invitation {
 
   </section>
 
+  <!-- SECCIÓN 1B: NUESTRA HISTORIA -->
+
+  <section class="story" id="historia">
+
+    <h2 class="section-title">Nuestra historia</h2>
+
+    <div class="carousel" id="storyCarousel">
+
+      <div class="carousel-track" id="storyTrack" tabindex="0" role="group" aria-label="Fotos de nuestra historia">
+        <figure class="carousel-slide">
+          <span class="photo-label">foto1</span>
+          <img src="foto1.jpg" alt="Nuestra historia, foto 1" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </figure>
+        <figure class="carousel-slide">
+          <span class="photo-label">foto2</span>
+          <img src="foto2.jpg" alt="Nuestra historia, foto 2" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </figure>
+        <figure class="carousel-slide">
+          <span class="photo-label">foto3</span>
+          <img src="foto3.jpg" alt="Nuestra historia, foto 3" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </figure>
+        <figure class="carousel-slide">
+          <span class="photo-label">foto4</span>
+          <img src="foto4.jpg" alt="Nuestra historia, foto 4" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </figure>
+        <figure class="carousel-slide">
+          <span class="photo-label">foto5</span>
+          <img src="foto5.jpg" alt="Nuestra historia, foto 5" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </figure>
+        <figure class="carousel-slide">
+          <span class="photo-label">foto6</span>
+          <img src="foto6.jpg" alt="Nuestra historia, foto 6" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </figure>
+      </div>
+
+      <button class="carousel-btn prev" id="storyPrev" type="button" aria-label="Foto anterior">&#8249;</button>
+      <button class="carousel-btn next" id="storyNext" type="button" aria-label="Foto siguiente">&#8250;</button>
+
+      <div class="carousel-dots" id="storyDots"></div>
+
+    </div>
+
+  </section>
+
   <!-- SECCIÓN 2: DETALLES DEL EVENTO -->
 
   <section class="event-section" id="detalles">
@@ -1108,30 +1283,12 @@ section.invitation {
 
     <article class="event-card">
 
-      <svg
+      <img
         class="event-icon"
-        viewBox="0 0 120 120"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-label="Ilustración de copas de brindis"
-        role="img"
+        src="copas-brindis.webp"
+        alt="Ilustración de dos copas brindando"
+        decoding="async"
       >
-        <path d="M27 15h29l-3 30c-1 11-6 17-12 20v25"/>
-        <path d="M39 70c-9-3-14-11-14-25"/>
-        <path d="M24 45h30"/>
-        <path d="M41 90h-9m0 0h26"/>
-        <path d="M65 15h29l-3 30c-1 11-6 17-12 20v25"/>
-        <path d="M77 70c-9-3-14-11-14-25"/>
-        <path d="M62 45h30"/>
-        <path d="M79 90h-9m0 0h26"/>
-        <path d="M50 24l8-8m-5 17l9-9"/>
-        <path d="M87 15l7-7m-3 16l8-8"/>
-        <path d="M60 104c-13 0-22 2-29 5h58c-7-3-16-5-29-5z"/>
-      </svg>
 
       <h3 class="event-type">La celebración</h3>
 
@@ -1300,6 +1457,7 @@ section.invitation {
         <input type="checkbox" class="pact-check">
         <span class="pact-box"></span>
         <span class="pact-text">
+          <span class="pact-name">Pacto "Los 90 Mandan"</span>
           Juro solemnemente bailar al menos una canción de los 90. 🕺
         </span>
       </label>
@@ -1308,6 +1466,7 @@ section.invitation {
         <input type="checkbox" class="pact-check">
         <span class="pact-box"></span>
         <span class="pact-text">
+          <span class="pact-name">Artículo "Solo la Novia de Blanco"</span>
           Entiendo que si visto de blanco, los padrinos tienen permitido
           escoltarme amablemente a la salida. 👰
         </span>
@@ -1720,6 +1879,56 @@ rsvpForm.addEventListener("submit", async (e) => {
     setFeedback("No pudimos enviar tu respuesta. Revisa tu conexión e inténtalo de nuevo.", "error");
   }
 });
+
+/* CARRUSEL: NUESTRA HISTORIA */
+
+(function () {
+  const track = document.getElementById("storyTrack");
+  const dotsBox = document.getElementById("storyDots");
+  const prev = document.getElementById("storyPrev");
+  const next = document.getElementById("storyNext");
+  if (!track) return;
+
+  const slides = track.querySelectorAll(".carousel-slide");
+  const dots = [];
+
+  slides.forEach((_, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "carousel-dot";
+    b.setAttribute("aria-label", "Ir a la foto " + (i + 1));
+    b.addEventListener("click", () => goTo(i));
+    dotsBox.appendChild(b);
+    dots.push(b);
+  });
+
+  function current() {
+    return Math.round(track.scrollLeft / (track.clientWidth || 1));
+  }
+
+  function goTo(i) {
+    const n = slides.length;
+    const idx = (i + n) % n;
+    track.scrollTo({ left: idx * track.clientWidth });
+  }
+
+  function updateDots() {
+    const idx = Math.min(current(), slides.length - 1);
+    dots.forEach((d, i) => d.classList.toggle("active", i === idx));
+  }
+
+  prev.addEventListener("click", () => goTo(current() - 1));
+  next.addEventListener("click", () => goTo(current() + 1));
+
+  let ticking = false;
+  track.addEventListener("scroll", () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { updateDots(); ticking = false; });
+  }, { passive: true });
+
+  updateDots();
+})();
 
 /* CONTADOR HASTA EL GRAN DÍA */
 
