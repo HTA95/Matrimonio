@@ -489,6 +489,131 @@ footer {
   text-underline-offset: 4px;
 }
 
+/* SECCIÓN 6: PACTOS Y CONDICIONES */
+
+.pacts {
+  max-width: 520px;
+  margin: 65px auto 0;
+  padding: 45px 25px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.pacts-heading {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #a18770;
+  margin-bottom: 14px;
+}
+
+.pacts-title {
+  font-size: 30px;
+  font-style: italic;
+  font-weight: normal;
+  color: #70584a;
+  margin-bottom: 18px;
+}
+
+.pacts-intro {
+  max-width: 390px;
+  margin: 0 auto 32px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #79685b;
+}
+
+.pact-list {
+  max-width: 390px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.pact {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 4px;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pact:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.pact input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pact-box {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  margin-top: 3px;
+  border: 1px solid var(--olive);
+  border-radius: 2px;
+  background: var(--ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.pact-box::after {
+  content: "";
+  width: 6px;
+  height: 11px;
+  margin-top: -2px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.2s ease;
+}
+
+.pact input:checked + .pact-box {
+  background: var(--olive);
+}
+
+.pact input:checked + .pact-box::after {
+  transform: rotate(45deg) scale(1);
+}
+
+.pact input:focus-visible + .pact-box {
+  outline: 2px solid var(--sage);
+  outline-offset: 3px;
+}
+
+.pact-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #79685b;
+}
+
+.pact-name {
+  display: block;
+  font-size: 17px;
+  font-style: italic;
+  color: #70584a;
+  margin-bottom: 4px;
+}
+
+.pacts-status {
+  margin-top: 26px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #947c68;
+}
+
+.pacts-status.complete {
+  color: var(--olive);
+  font-style: italic;
+}
+
 @media (max-width: 480px) {
   .cover {
     padding: 20px 8px;
@@ -793,6 +918,89 @@ footer {
 
   </section>
 
+  <!-- SECCIÓN 6: PACTOS Y CONDICIONES -->
+
+  <section class="pacts" id="pactos">
+
+    <p class="pacts-heading">LA LETRA CHICA</p>
+
+    <h2 class="pacts-title">Pactos y Condiciones</h2>
+
+    <p class="pacts-intro">
+      Antes de confirmar tu asistencia, necesitamos que firmes
+      (con un click) cada uno de estos pactos. Son legalmente
+      vinculantes... en el corazón.
+    </p>
+
+    <div class="pact-list">
+
+      <label class="pact">
+        <input type="checkbox" class="pact-check">
+        <span class="pact-box"></span>
+        <span class="pact-text">
+          Juro solemnemente bailar al menos una canción de los 90. 🕺
+        </span>
+      </label>
+
+      <label class="pact">
+        <input type="checkbox" class="pact-check">
+        <span class="pact-box"></span>
+        <span class="pact-text">
+          Entiendo que si visto de blanco, los padrinos tienen permitido
+          escoltarme amablemente a la salida. 👰
+        </span>
+      </label>
+
+      <label class="pact">
+        <input type="checkbox" class="pact-check">
+        <span class="pact-box"></span>
+        <span class="pact-text">
+          <span class="pact-name">Cláusula "Adulto Irresponsable"</span>
+          Acepto que quiero ser el adulto irresponsable de la noche, por eso
+          entiendo que el matrimonio es sin niños. Gracias por la comprensión. 🍻
+        </span>
+      </label>
+
+      <label class="pact">
+        <input type="checkbox" class="pact-check">
+        <span class="pact-box"></span>
+        <span class="pact-text">
+          <span class="pact-name">Pacto "Vienes Solo"</span>
+          Entiendo que mi invitación es personal. Si me llegó para uno, no
+          llevaré un "+1" sorpresa (ni al pinche de la semana ni a un primo).
+          Confío en que me espera una mesa ultra prendida. 🤫
+        </span>
+      </label>
+
+      <label class="pact">
+        <input type="checkbox" class="pact-check">
+        <span class="pact-box"></span>
+        <span class="pact-text">
+          <span class="pact-name">Acuerdo "Cero Hora Chilena"</span>
+          Sé que la hora de la ceremonia es real. Si me agarra el taco y llego
+          tarde cuando la novia ya va entrando, asumo que tendré que
+          camuflarme entre los arbustos. ⏱️
+        </span>
+      </label>
+
+      <label class="pact">
+        <input type="checkbox" class="pact-check">
+        <span class="pact-box"></span>
+        <span class="pact-text">
+          <span class="pact-name">Pacto "Lo que pasa en la boda..."</span>
+          Prometo que los pasos prohibidos y los abrazos de curado de las
+          3 AM se quedan en la boda. 🤐
+        </span>
+      </label>
+
+    </div>
+
+    <p class="pacts-status" id="pactsStatus" aria-live="polite">
+      0 de 6 pactos firmados
+    </p>
+
+  </section>
+
   <footer>
     CON MUCHO AMOR · M & H
   </footer>
@@ -850,6 +1058,32 @@ marisolgarin1@gmail.com`;
     fallback();
   }
 }
+
+/* PACTOS Y CONDICIONES */
+
+function allPactsAccepted() {
+  const checks = document.querySelectorAll(".pact-check");
+  return checks.length > 0 && Array.from(checks).every(c => c.checked);
+}
+
+function updatePactsStatus() {
+  const checks = document.querySelectorAll(".pact-check");
+  const done = Array.from(checks).filter(c => c.checked).length;
+  const status = document.getElementById("pactsStatus");
+  const complete = done === checks.length;
+
+  status.textContent = complete
+    ? "¡Todos los pactos firmados! Ya puedes confirmar tu asistencia 🥂"
+    : done + " de " + checks.length + " pactos firmados";
+  status.classList.toggle("complete", complete);
+
+  // Aviso para el RSVP (próximo hito)
+  document.dispatchEvent(new CustomEvent("pactsChange", { detail: { complete } }));
+}
+
+document.querySelectorAll(".pact-check").forEach(c => {
+  c.addEventListener("change", updatePactsStatus);
+});
 </script>
 
 </body>
