@@ -66,9 +66,6 @@ body {
   display: block;
   width: 100%;
   height: auto;
-  max-height: max(240px, calc(100vh - 250px));
-  max-height: max(240px, calc(100svh - 250px));
-  object-fit: contain;
   transition: transform 1s ease, opacity 1s ease;
   transform-origin: center center;
 }
@@ -83,48 +80,6 @@ body {
   letter-spacing: 2px;
   color: #947c68;
   margin-top: 5px;
-}
-
-/* AVISO DE CUPO RESERVADO (bajo el sobre) */
-
-.reserved {
-  margin: 6px auto 4px;
-  padding: 13px 26px;
-  max-width: 92vw;
-  border-top: 1px solid var(--sage);
-  border-bottom: 1px solid var(--sage);
-  animation: reservedIn 1.4s ease both 0.4s;
-  transition: opacity 0.8s ease;
-}
-
-.reserved-text {
-  font-size: clamp(19px, 5.6vw, 24px);
-  font-style: italic;
-  line-height: 1.4;
-  color: #70584a;
-  text-wrap: balance;
-}
-
-.reserved-text strong {
-  font-weight: normal;
-  color: var(--burgundy);
-}
-
-.reserved + .instruction {
-  margin-top: 14px;
-}
-
-.envelope.open ~ .reserved {
-  opacity: 0;
-}
-
-@keyframes reservedIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reserved { animation: none; }
 }
 
 /* INVITACIÓN */
@@ -1207,10 +1162,6 @@ section.invitation {
     >
   </div>
 
-  <div class="reserved">
-    <p class="reserved-text">Hemos reservado <strong>1 cupo</strong> para ti</p>
-  </div>
-
   <p class="instruction">TOCA EL SOBRE PARA ABRIR</p>
 
 </section>
@@ -1590,7 +1541,7 @@ Como saben, amamos viajar y estamos muy ilusionados con nuestra luna de miel. Po
 
     <h2 class="rsvp-title">Confirma tu asistencia</h2>
 
-    <p class="rsvp-deadline">Tienes hasta el 15 de diciembre</p>
+    <p class="rsvp-deadline">Hemos reservado 1 cupo para ti</p>
 
     <p class="rsvp-intro">
       Para poder organizar todo con cariño, cuéntanos si nos acompañas.
